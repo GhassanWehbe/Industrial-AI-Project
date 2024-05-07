@@ -1,0 +1,18 @@
+# Use the official Node.js image
+FROM node:14
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the local code to the container image
+COPY package-lock.json /app/
+COPY . /app/
+
+# Install dependencies
+RUN npm install --from-lock-json
+
+# Expose the port the app runs on
+EXPOSE 3000
+
+# Command to run the application
+CMD ["npm", "start"]
