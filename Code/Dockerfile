@@ -2,10 +2,10 @@
 FROM python:3.8-slim
 
 # Set the working directory inside the container
-WORKDIR /Api
+WORKDIR /main
 
 # Copy the local code to the container image
-COPY . /Api
+COPY . /main
 
 # Install Python dependencies from requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
