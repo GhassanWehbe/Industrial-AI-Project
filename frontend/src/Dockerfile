@@ -5,8 +5,8 @@ FROM node:14
 WORKDIR /app
 
 # Copy the local code to the container image
-COPY pachage-lock.json /app/
-COPY src /app/
+COPY package-lock.json /app/
+#COPY frontend /app/
 
 # Install dependencies
 RUN npm install --from-lock-json
