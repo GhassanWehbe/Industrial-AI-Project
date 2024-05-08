@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  model-api:
+    build:
+      context: ./Code/main.py
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./Code/main.py:/main
+      - ./Models:/main/Models
+    command: python main.py
+    environment:
+      - MODEL_PATH=/main/Models/Potato_Model_v3.00
+
+  website:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+    command: npm start
+
+networks:
+  default:
